@@ -1,8 +1,8 @@
-#Episode 2
+# Episode 2
 
 - Parcel and its advantages. Parcel is a beast! :-)
 
-#Episode 3
+# Episode 3
 
 - React.createElement and ReactDOM.createRoot
 - JSX : It is not HTML in javascript. Rather it is an HTML like syntax.
@@ -20,3 +20,10 @@
   - Class based components - OLD
   - Function components - NEW : It is a javascript function that returns a react element (JSX code).
   - Component composition is rendering components inside other components.
+
+# Episode 4
+
+- Planning an application
+- Creating components
+- Making dynamic components - passing props to a component is same as passing args to js function.
+- Config Driven UI

@@ -1,6 +1,6 @@
-#Namaste React
+## Namaste React
 
-#Parcel for packaging
+# Parcel for packaging
 
 - Dev build
 - Local Server
@@ -18,3 +18,22 @@
 - Error handling
 - SSL support
 - Tree shaking
+
+# App structure
+
+Header
+
+- Logo
+- Home
+- About
+- Cart
+  Body
+- Restaurant Container
+  - Restauarant Card
+    - Restaurant Logo
+    - Name
+    - Cuisines
+    - Star Rating
+    - Delivery Time
+
+Footer
