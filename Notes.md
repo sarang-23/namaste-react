@@ -27,3 +27,14 @@
 - Creating components
 - Making dynamic components - passing props to a component is same as passing args to js function.
 - Config Driven UI
+
+# Episode 5
+
+- Named Import and default import
+- React hooks
+- Whenever a state variable changes, react re-renders the component
+- Reconciliation (React Fiber)
+  - Virtual DOM is an Object representation of actual DOM
+  - Diff Algorimthm finds the difference between old and new virtaul DOM and then updates the actual DOM
+  - React does not touch the DOM a lot. It compares different versions of the virtual DOM.
+  - Incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
