@@ -43,3 +43,8 @@
 
 - Monolith vs Microservices.
 - Microservices : Separation of concerns.
+- CORS
+- Fetch requests -> useEffect hook details.
+- Shimmer UI
+- Whwnever state changes, react triggers the reconcilliation algorithm and hence,
+  React re-renders on change of state variable

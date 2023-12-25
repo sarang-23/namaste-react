@@ -7,11 +7,11 @@ const Body = () => {
 
   const getTopRatedRes = () => {
     const topRatedRes = resList.filter((res) => res.info.avgRating > 4);
-    setResList(topRatedRes);
+    setFilteredList(topRatedRes);
   };
 
   const resetFilter = () => {
-    setResList(fetchData());
+    setFilteredList(fetchData());
   };
 
   useEffect(() => {
@@ -26,25 +26,45 @@ const Body = () => {
     const restaurantCardsData = jsonData?.data?.cards?.filter(
       (c) => c.card?.card?.id === "restaurant_grid_listing"
     );
-    setResList(
+    const restaurants =
       restaurantCardsData[0]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+        ?.restaurants;
+    setResList(restaurants);
+    setFilteredList(restaurants);
   };
 
+  const [searchText, setSearchText] = useState("");
+  const [filteredList, setFilteredList] = useState([]);
+  const search = () => {
+    const temp = resList;
+    setFilteredList(
+      temp.filter((res) =>
+        res.info?.name?.toLowerCase().includes(searchText.toLocaleLowerCase())
+      )
+    );
+  };
   return (
     <div className="body-container">
-      {resList.length ? (
+      {filteredList.length ? (
         <>
+          <div>
+            <input
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder="Enter restaurant name"
+            />
+            <button onClick={search}>Search</button>
+          </div>
           <div className="filter">
             <button onClick={getTopRatedRes}>Show Top Rated</button>
             <button onClick={resetFilter}>Reset Filter</button>
           </div>
           <div className="res-container">
-            {resList.map((res) => (
+            {filteredList.map((res) => (
               <RestauarantCard key={res.info.id} resData={res.info} />
             ))}
-          </div>{" "}
+          </div>
         </>
       ) : (
         <Shimmer />
