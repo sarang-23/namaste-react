@@ -37,3 +37,8 @@ Header
     - Delivery Time
 
 Footer
+
+# Types of routing
+
+- Client side routing
+- Server side routing -> Make a network call, server returns the new page according to route.

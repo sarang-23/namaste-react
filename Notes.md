@@ -48,3 +48,14 @@
 - Shimmer UI
 - Whwnever state changes, react triggers the reconcilliation algorithm and hence,
   React re-renders on change of state variable
+
+# Episode 7
+
+- When is useEffect called. Depending on the dependency array values - empty, [], or with some value
+- Don't use useState inside any condition / function in a component.
+- React Router Dom -> createBrowserRouter : Takes in a list of objects and prepares router config.
+- Children Routes -> `children` key of configuration object helps in defining children routes. These can
+  be rendered usiing the <Outlet/> component.
+- <Link/> Component. Differnce between Link and href is that href will reload the entire page while
+  the link element will not cause the page to reload. Link element only refreshes the component. This 
+  makes the application a SPA - single page application.
