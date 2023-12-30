@@ -39,6 +39,7 @@ Header
 Footer
 
 # Types of routing
-
+ 
+- React router dom is a javascript library created to aid in seamless routing inside react applications.
 - Client side routing
 - Server side routing -> Make a network call, server returns the new page according to route.
