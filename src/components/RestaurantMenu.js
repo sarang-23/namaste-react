@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { HEADERS, PROXY, RESTAURANT_MENU_API } from "../utils/constants";
+import {
+  DISH_IMAGE_BASE,
+  HEADERS,
+  PROXY,
+  RESTAURANT_MENU_API,
+} from "../utils/constants";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 
@@ -34,14 +39,19 @@ const RestaurantMenu = () => {
       </div>
       <div className="res-dishes-container">
         {itemCards?.map((item) => {
-          const { name, description, id, price } = item?.card?.info;
+          const { name, description, id, price, imageId } = item?.card?.info;
           return (
-            <div key={id}>
-              <div className="dish-name">{name}</div>
-              <div className="dish-price">
-                <span class="rupee">{price / 100}</span>
+            <div key={id} className="dish-container">
+              <div className="dish-info">
+                <div className="dish-name">{name}</div>
+                <div className="dish-price">
+                  <span class="rupee">{price / 100}</span>
+                </div>
+                <div className="dish-description">{description}</div>
               </div>
-              <div className="dish-description">{description}</div>
+              <div className="dish-image">
+                <img src={DISH_IMAGE_BASE + imageId} alt={name} />
+              </div>
             </div>
           );
         })}

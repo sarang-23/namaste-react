@@ -1,10 +1,7 @@
-@font-face {
-  font-family: 'ProximaNova';
-  src: local('ProximaNova'), url(/src/fonts/Fontspring-DEMO-proximanova-regular.otf), format('opentype');
-}
+
 body{
   margin: 0;
-  font-family: 'ProximaNova,arial,Helvetica Neue,sans-serif';
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 .header { 
   display: flex;
@@ -207,4 +204,13 @@ body{
 .rupee::before{
   content: "\20B9";
   margin-right: 0.1rem;
+}
+.dish-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dish-image > img {
+  width: 150px;
+  aspect-ratio: 16/9;
 }

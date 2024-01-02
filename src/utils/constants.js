@@ -9,10 +9,12 @@ export const RESTAURANT_MENU_API =
 
 export const PROXY = "https://proxy.cors.sh/";
 
+const DISH_IMAGE_BASE =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 export const HEADERS = {
   headers: {
     "x-cors-api-key": "temp_655f3dd194cc10f9dfe3c36e7039df1a",
   },
 };
 
-export { LOGO_URL, CART_IMAGE, CDN_URL };
+export { LOGO_URL, CART_IMAGE, CDN_URL, DISH_IMAGE_BASE };
