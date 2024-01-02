@@ -1,7 +1,9 @@
 import RestauarantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import Search from "./Search";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [resList, setResList] = useState([]);
 
@@ -38,36 +40,33 @@ const Body = () => {
     setFilteredList(restaurants);
   };
 
-  const [searchText, setSearchText] = useState("");
   const [filteredList, setFilteredList] = useState([]);
-  const search = () => {
+
+  const search = (searchText) => {
+    console.log(searchText);
     const temp = resList;
     setFilteredList(
       temp.filter((res) =>
-        res.info?.name?.toLowerCase().includes(searchText.toLocaleLowerCase())
+        res.info?.name?.toLowerCase().includes(searchText.toLowerCase())
       )
     );
   };
   return (
-    <div>
+    <div className="content">
+      <div className="all-filters">
+        <Search search={(searchText) => search(searchText)} />
+        <div className="filter">
+          <button onClick={getTopRatedRes}>Show Top Rated</button>
+          <button onClick={resetFilter}>Reset Filter</button>
+        </div>
+      </div>
       {filteredList.length ? (
         <>
-          <div>
-            <input
-              type="text"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-              placeholder="Enter restaurant name"
-            />
-            <button onClick={search}>Search</button>
-          </div>
-          <div className="filter">
-            <button onClick={getTopRatedRes}>Show Top Rated</button>
-            <button onClick={resetFilter}>Reset Filter</button>
-          </div>
           <div className="res-container">
             {filteredList.map((res) => (
-              <RestauarantCard key={res.info.id} resData={res.info} />
+              <Link to={`/restaurant/${res.info.id}`} key={res.info.id}>
+                <RestauarantCard resData={res.info} />
+              </Link>
             ))}
           </div>
         </>
