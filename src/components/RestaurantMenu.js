@@ -45,7 +45,7 @@ const RestaurantMenu = () => {
               <div className="dish-info">
                 <div className="dish-name">{name}</div>
                 <div className="dish-price">
-                  <span class="rupee">{price / 100}</span>
+                  <span className="rupee">{price / 100}</span>
                 </div>
                 <div className="dish-description">{description}</div>
               </div>

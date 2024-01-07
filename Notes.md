@@ -59,3 +59,18 @@
 - <Link/> Component. Differnce between Link and href is that href will reload the entire page while
   the link element will not cause the page to reload. Link element only refreshes the component. This 
   makes the application a SPA - single page application.
+- Dynamic routing (:resId)
+
+# Episode 8
+
+- Class based components
+- If we want to use this.props or simply this keyword inside the constructor,
+  we need to pass the props coming from the parent class in super.
+  super() is a reference to the parent class constructor i.e. React.Component.
+  So when we pass props to super, the props get assigned to this also.
+- To create a state variable for class based component, create it in the class's
+  constructor
+- Interesting thing : In functional components, all state variables are merged to
+  a single object by react behind the scenes.
+- NEVER UPDATE STATE VARIABLES DIRECTLY - use this.setState()
+- setState will only update part of the state object by finding diff.
