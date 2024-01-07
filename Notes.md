@@ -74,3 +74,19 @@
   a single object by react behind the scenes.
 - NEVER UPDATE STATE VARIABLES DIRECTLY - use this.setState()
 - setState will only update part of the state object by finding diff.
+- React Lifecycle: React works in 2 phases  - Render phase, Commit phase :
+  Diagram can be found here - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+  ----- Mounting cycle -------
+  1. Constructor - Render cycle
+  2. Render - Render Cycle
+  3. React updates DOM
+  4. ComponentDidMount - Commit cycle -> Updates state
+  
+  ----- Update Cycle ---------
+  1. Render - Render cycle
+  2. React Updates DOM - Commit cycle
+  3. ComponentDidUpdate - Commit cycle.
+
+  --- Unmount cycle ---- 
+  1. componentWillUnmount - commit cycle. Triggered just before component is about
+      to unmount.
