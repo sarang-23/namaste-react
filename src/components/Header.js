@@ -2,6 +2,7 @@ import { useState } from "react";
 import { LOGO_URL, CART_IMAGE } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
