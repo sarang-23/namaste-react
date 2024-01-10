@@ -154,3 +154,9 @@ Footer
 # Episode 9
 
 1. Single responsibility principle. - Implementing Custom hooks
+2. Chunking / code spliting / dynamic bundling / lazy loading / on demand loading / dynamic import
+
+- This helps in enhancing aaplication performance by chunking the js bundle into multiple bundles.
+- const comp = lazy(() => import(${path to component})). You need to wrap the component inside <Suspene>
+  component to be able to handle the state when the browser is in process of downloading the js file.
+  This component takes in fallback as a prop which can be any valid JSX code.
