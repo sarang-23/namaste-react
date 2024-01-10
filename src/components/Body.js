@@ -2,53 +2,28 @@ import RestauarantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import Search from "./Search";
 
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useRestaurantList from "../utils/useRestaurantList";
+import { useState } from "react";
+
 const Body = () => {
-  const [resList, setResList] = useState([]);
+  const { resList } = useRestaurantList();
+  let filteredList = resList;
 
   const getTopRatedRes = () => {
-    const topRatedRes = resList.filter((res) => res.info.avgRating > 4);
-    setFilteredList(topRatedRes);
+    const tempList = resList;
+    const topRatedRes = tempList.filter((res) => res.info.avgRating > 4);
+    filteredList = topRatedRes;
   };
 
   const resetFilter = () => {
-    setFilteredList(fetchData());
+    filteredList = resList;
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.993530945149397&lng=77.6846528983745&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
-      {
-        headers: {
-          "x-cors-api-key": "temp_655f3dd194cc10f9dfe3c36e7039df1a",
-        },
-      }
-    );
-    const jsonData = await data.json();
-    const restaurantCardsData = jsonData?.data?.cards?.filter(
-      (c) => c.card?.card?.id === "restaurant_grid_listing"
-    );
-    const restaurants =
-      restaurantCardsData[0]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setResList(restaurants);
-    setFilteredList(restaurants);
-  };
-
-  const [filteredList, setFilteredList] = useState([]);
 
   const search = (searchText) => {
-    console.log(searchText);
     const temp = resList;
-    setFilteredList(
-      temp.filter((res) =>
-        res.info?.name?.toLowerCase().includes(searchText.toLowerCase())
-      )
+    filteredList = temp.filter((res) =>
+      res.info?.name?.toLowerCase().includes(searchText.toLowerCase())
     );
   };
   return (

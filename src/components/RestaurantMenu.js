@@ -1,10 +1,4 @@
-import { useEffect, useState } from "react";
-import {
-  DISH_IMAGE_BASE,
-  HEADERS,
-  PROXY,
-  RESTAURANT_MENU_API,
-} from "../utils/constants";
+import { DISH_IMAGE_BASE } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
